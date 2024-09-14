@@ -4,5 +4,7 @@
 format: jb-book
 root: intro
 chapters:
-- file: 1_0_はじめに
-- file: 2_3_1__1_サンプルデータ
+  - file: 1_0_はじめに
+    title: "第1章 - データの概要"
+  - file: 2_3_1__1_サンプルデータ
+    title: "第2章 - データの前処理"
