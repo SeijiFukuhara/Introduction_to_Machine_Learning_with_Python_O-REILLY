@@ -48,3 +48,4 @@ O'REILLYの書籍「Pythonではじめる機械学習　scikit-learnで学ぶ特
 
 ## 2.5 まとめと展望
 [2.5_まとめと展望](./notebooks/2_5_まとめと展望.ipynb)
+b
