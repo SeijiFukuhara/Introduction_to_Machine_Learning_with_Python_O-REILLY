@@ -1,0 +1,1668 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>教師あり学習 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2章_教師あり学習';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="はじめに" href="1%E7%AB%A0_%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1%E7%AB%A0_%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB.html">はじめに</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">教師あり学習</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F2章_教師あり学習.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2章_教師あり学習.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>教師あり学習</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">クラス分類と回帰</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">教師あり機械学習アルゴリズム</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">線形モデル</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">線形モデルによる回帰</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">線形回帰（通常最小二乗法）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">リッジ回帰</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>教師あり学習<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>教師あり学習は，最もよく用いられ，そしてうまく機能しているタイプの機械学習だ，本章では教師有学習について詳しく述べ，いくつかのよく使われる教師有学習アルゴリズムについて説明する．本章では教師有学習について詳しく述べ，いくつかのよく使われる教師あり学習アルゴリズムについて説明する，</p>
+<section id="id2">
+<h2>クラス分類と回帰<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>教師あり機械学習問題</p>
+<ul>
+<li><p><strong>クラス分類</strong> あらかじめ定められた選択肢の中から<strong>クラスラベル</strong>を予測すること</p>
+<ul>
+<li><p><strong>２クラス分類</strong> ２つだけのクラスを分類する特殊ケース（答えがyes/no）</p></li>
+<li><p><strong>多クラス分類</strong> ３つ以上のクラスを分類する問題（アイリス，Webサイトのテキストから，そのWebサイトの使用している言語を予測する問題）</p></li>
+</ul>
+</li>
+<li><p><strong>回帰</strong> 目的は連続値の予測．（ある人の年収を学歴と年齢と住所から予測する/トウモロコシ農家の収穫量を，前年の収穫量，天候，従業員数から予測する）</p></li>
+</ul>
+</li>
+</ul>
+<p>クラス分類問題と回帰分類問題を区別するには，出力に何らかの連続性があるかを考えてみればよい．出力に連続性があるなら回帰問題である．</p>
+</section>
+<section id="id3">
+<h2>教師あり機械学習アルゴリズム<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>これからさまざまなアルゴリズムを紹介するために，いくつかのデータセットを使う．そのうちのいくつかは，小さくて合成したもの（つまりでっちあげたもの）で，アルゴリズムの特定の側面を強調するように設計されている．この他に，大きい，実世界からとってきたデータセットも用いる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mglearn</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データセットの生成</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_forge</span><span class="p">()</span>
+<span class="c1"># データセットをプロット</span>
+<span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Class 0&quot;</span><span class="p">,</span> <span class="s2">&quot;Class 1&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;First feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Second feature&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X.shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X.shape: (26, 2)
+</pre></div>
+</div>
+<img alt="_images/1e6770d6488503ee817514d6c427c9a38edeae040007654a4675cb1ee10087ea.png" src="_images/1e6770d6488503ee817514d6c427c9a38edeae040007654a4675cb1ee10087ea.png" />
+</div>
+</div>
+<p><strong>Figure 1:</strong> This is a sample plot showing the relationship between X and Y.</p>
+<p>X.shapeからわかるように，このデータセットは，２つの特長量を持つ26のデータポイントで構成されている．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Target&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Target&#39;)
+</pre></div>
+</div>
+<img alt="_images/591d5497fc2fba344b7ed2d7a3a43ddda5f1b46b165b5e0b610b68b8b19ac4a5.png" src="_images/591d5497fc2fba344b7ed2d7a3a43ddda5f1b46b165b5e0b610b68b8b19ac4a5.png" />
+</div>
+</div>
+<p><strong>Figure 1:</strong> This is a sample plot showing the relationship between X and Y.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cancer.keys(): </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cancer.keys(): 
+dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;frame&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;, &#39;data_module&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of cancer data: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span> <span class="c1">#このデータセットは，30の特徴量を持つ569おデータポイントで構成されている．</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of cancer data: (569, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample counts per class:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">({</span><span class="n">n</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">target_names</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">))}))</span> 
+<span class="c1">#悪性が212良性が357</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample counts per class:
+{&#39;malignant&#39;: 212, &#39;benign&#39;: 357}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#個々の特徴量の意味を示す記述</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature names:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">feature_names</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature names:
+[&#39;mean radius&#39; &#39;mean texture&#39; &#39;mean perimeter&#39; &#39;mean area&#39;
+ &#39;mean smoothness&#39; &#39;mean compactness&#39; &#39;mean concavity&#39;
+ &#39;mean concave points&#39; &#39;mean symmetry&#39; &#39;mean fractal dimension&#39;
+ &#39;radius error&#39; &#39;texture error&#39; &#39;perimeter error&#39; &#39;area error&#39;
+ &#39;smoothness error&#39; &#39;compactness error&#39; &#39;concavity error&#39;
+ &#39;concave points error&#39; &#39;symmetry error&#39; &#39;fractal dimension error&#39;
+ &#39;worst radius&#39; &#39;worst texture&#39; &#39;worst perimeter&#39; &#39;worst area&#39;
+ &#39;worst smoothness&#39; &#39;worst compactness&#39; &#39;worst concavity&#39;
+ &#39;worst concave points&#39; &#39;worst symmetry&#39; &#39;worst fractal dimension&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>実世界の回帰データセットとして，boston_housingデータセットを用いる．このデータセットを用いるタスクは，1970年代のボストン近郊の住宅地の住宅価格の中央値を，犯罪率，チャールズ川からの距離，高速道路への利便性などから予測するものだ，このデータセットには，13の特徴量を持つ506のデータポイントが含まれる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="n">boston</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data shape: (20640, 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_extended_boston</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X.shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X.shape: (506, 104)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\seiji\anaconda3\Lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function load_boston is deprecated; `load_boston` is deprecated in 1.0 and will be removed in 1.2.
+
+    The Boston housing prices dataset has an ethical problem. You can refer to
+    the documentation of this function for further details.
+
+    The scikit-learn maintainers therefore strongly discourage the use of this
+    dataset unless the purpose of the code is to study and educate about
+    ethical issues in data science and machine learning.
+
+    In this special case, you can fetch the dataset from the original
+    source::
+
+        import pandas as pd
+        import numpy as np
+
+        data_url = &quot;http://lib.stat.cmu.edu/datasets/boston&quot;
+        raw_df = pd.read_csv(data_url, sep=&quot;\s+&quot;, skiprows=22, header=None)
+        data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+        target = raw_df.values[1::2, 2]
+
+    Alternative datasets include the California housing dataset (i.e.
+    :func:`~sklearn.datasets.fetch_california_housing`) and the Ames housing
+    dataset. You can load the datasets as follows::
+
+        from sklearn.datasets import fetch_california_housing
+        housing = fetch_california_housing()
+
+    for the California housing dataset and::
+
+        from sklearn.datasets import fetch_openml
+        housing = fetch_openml(name=&quot;house_prices&quot;, as_frame=True)
+
+    for the Ames housing dataset.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<p>k-最近傍法アルゴリズムは，最も単純な学習アルゴリズムであると言われる．モデルの構築は，訓練データセットを格納するだけだ．新しいデータポイントに対する予測を行う際には，訓練データセットの中から一番近い点つまり「最近傍点」を見つける．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_knn_classification</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4b5ce8dd7f5d517a6be5dddf01cfccb82aac00f511235a8ddfeceb0a530cf022.png" src="_images/4b5ce8dd7f5d517a6be5dddf01cfccb82aac00f511235a8ddfeceb0a530cf022.png" />
+</div>
+</div>
+<p>近傍点は１つとは限らず，任意個の，つまりk個の近傍点を考慮することもできる．これが，k-最近傍法の名前の由来だ．１つ以上の近傍点を考慮に入れる場合には，<strong>投票</strong>でラベルを決める．つまり，個々のテストする点に対してｍ，近傍点のうち，いくつかがクラス0に属し，いくつかが1に属するのかを数えるのだ，そして，最も多くあらわれたクラスをその点に与える，言い換えればk-最近傍点の多数派のクラスを採用するのだ．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_knn_classification</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1d9023fa385e51fd8d6f0202792f7afe6a540675035e2fa0e05bf79201bdc342.png" src="_images/1d9023fa385e51fd8d6f0202792f7afe6a540675035e2fa0e05bf79201bdc342.png" />
+</div>
+</div>
+<p>ここで示しているのは２クラス分類問題だが，この方法は任意のクラス数に対しても適用できる．クラスがたくさんあるときには，それぞれのクラスに対して近傍点がいくつあるかを数えて，最も多いクラスを予測値とすればよい．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_forge</span><span class="p">()</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">KNeighborsClassifier</label><div class="sk-toggleable__content"><pre>KNeighborsClassifier(n_neighbors=3)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set predictions: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span> 
+<span class="c1">#テストデータに対して予測を行うにはpredictメソッドを呼び出す．テストセットのそれぞれのデータポイントに対して，</span>
+<span class="c1">#訓練セットの中から最近傍点を計算し，最も多いクラスを見つけ出す．</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set predictions: [1 0 1 0 1 0 0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set accuracy: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span> <span class="c1">#テストセットに対する精度</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set accuracy: 0.86
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#kが1,3,9の場合の決定境界を描画する</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">n_neighbors</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="c1">#fitメソッドは自分自身を返すので，１行で</span>
+    <span class="c1">#インスタンスを生成してfitすることができる</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_2d_separator</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.4</span><span class="p">)</span>
+    <span class="n">mglearn</span><span class="o">.</span><span class="n">discrete_scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> neighbor(s)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_neighbors</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;feature 0&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;feature 1&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2a52781e610&gt;
+</pre></div>
+</div>
+<img alt="_images/1aa4b54482d9e3413463d96e7afdbe9b1904294c765a4170175a146855f1a1cf.png" src="_images/1aa4b54482d9e3413463d96e7afdbe9b1904294c765a4170175a146855f1a1cf.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+
+<span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">66</span><span class="p">)</span>
+
+<span class="n">training_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># n_neighborsを1から10まで試す</span>
+<span class="n">neighbors_settings</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n_neighbors</span> <span class="ow">in</span> <span class="n">neighbors_settings</span><span class="p">:</span>
+    <span class="c1"># モデルを構築</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">)</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="c1"># 訓練セット精度を記録</span>
+    <span class="n">training_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+    <span class="c1"># 汎化精度を記録</span>
+    <span class="n">test_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors_settings</span><span class="p">,</span> <span class="n">training_accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">neighbors_settings</span><span class="p">,</span> <span class="n">test_accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;test accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;n_neighbors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">----------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># 訓練セット精度を記録</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">training_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># 汎化精度を記録</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">test_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\sklearn\base.py:666,</span> in <span class="ni">ClassifierMixin.score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span><span class="sd"> Return the mean accuracy on the given test data and labels.</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span><span class="sd">     Mean accuracy of ``self.predict(X)`` wrt. `y`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="ne">--&gt; </span><span class="mi">666</span> <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\sklearn\neighbors\_classification.py:226,</span> in <span class="ni">KNeighborsClassifier.predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Predict the class labels for the provided data.</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="sd">     Class labels for each data sample.</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">==</span> <span class="s2">&quot;uniform&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="c1"># In that case, we do not need the distances to perform</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="c1"># the weighting so we do not compute them.</span>
+<span class="ne">--&gt; </span><span class="mi">226</span>     <span class="n">neigh_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="n">neigh_dist</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\sklearn\neighbors\_base.py:763,</span> in <span class="ni">KNeighborsMixin.kneighbors</span><span class="nt">(self, X, n_neighbors, return_distance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">756</span> <span class="n">use_pairwise_distances_reductions</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_fit_method</span> <span class="o">==</span> <span class="s2">&quot;brute&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span>     <span class="ow">and</span> <span class="n">PairwiseDistancesArgKmin</span><span class="o">.</span><span class="n">is_usable_for</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>         <span class="n">X</span> <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="k">if</span> <span class="n">use_pairwise_distances_reductions</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">763</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">PairwiseDistancesArgKmin</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>         <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">765</span>         <span class="n">Y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_fit_X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>         <span class="n">k</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>         <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>         <span class="n">metric_kwargs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_params_</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>         <span class="n">return_distance</span><span class="o">=</span><span class="n">return_distance</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span> <span class="k">elif</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_fit_method</span> <span class="o">==</span> <span class="s2">&quot;brute&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s2">&quot;precomputed&quot;</span> <span class="ow">and</span> <span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">_kneighbors_from_graph</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span>         <span class="n">X</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="n">return_distance</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span>     <span class="p">)</span>
+
+<span class="nn">File sklearn\metrics\_pairwise_distances_reduction.pyx:698,</span> in <span class="ni">sklearn.metrics._pairwise_distances_reduction.PairwiseDistancesArgKmin.compute</span><span class="nt">()</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\sklearn\utils\fixes.py:151,</span> in <span class="ni">threadpool_limits</span><span class="nt">(limits, user_api)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="k">return</span> <span class="n">controller</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limits</span><span class="o">=</span><span class="n">limits</span><span class="p">,</span> <span class="n">user_api</span><span class="o">=</span><span class="n">user_api</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">151</span>     <span class="k">return</span> <span class="n">threadpoolctl</span><span class="o">.</span><span class="n">threadpool_limits</span><span class="p">(</span><span class="n">limits</span><span class="o">=</span><span class="n">limits</span><span class="p">,</span> <span class="n">user_api</span><span class="o">=</span><span class="n">user_api</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:171,</span> in <span class="ni">threadpool_limits.__init__</span><span class="nt">(self, limits, user_api)</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_api</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_limits</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_api</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prefixes</span> <span class="o">=</span> \
+<span class="g g-Whitespace">    </span><span class="mi">169</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">(</span><span class="n">limits</span><span class="p">,</span> <span class="n">user_api</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_original_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_threadpool_limits</span><span class="p">()</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:268,</span> in <span class="ni">threadpool_limits._set_threadpool_limits</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">268</span> <span class="n">modules</span> <span class="o">=</span> <span class="n">_ThreadpoolInfo</span><span class="p">(</span><span class="n">prefixes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_prefixes</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>                           <span class="n">user_api</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_user_api</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="c1"># self._limits is a dict {key: num_threads} where key is either</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="c1"># a prefix or a user_api. If a module matches both, the limit</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="c1"># corresponding to the prefix is chosed.</span>
+<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="k">if</span> <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limits</span><span class="p">:</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:340,</span> in <span class="ni">_ThreadpoolInfo.__init__</span><span class="nt">(self, user_api, prefixes, modules)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="bp">self</span><span class="o">.</span><span class="n">user_api</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">user_api</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">user_api</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>     <span class="bp">self</span><span class="o">.</span><span class="n">modules</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_load_modules</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_warn_if_incompatible_openmp</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:373,</span> in <span class="ni">_ThreadpoolInfo._load_modules</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_find_modules_with_dyld</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">373</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_find_modules_with_enum_process_module_ex</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_find_modules_with_dl_iterate_phdr</span><span class="p">()</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:485,</span> in <span class="ni">_ThreadpoolInfo._find_modules_with_enum_process_module_ex</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="n">filepath</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">value</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span>         <span class="c1"># Store the module if it is supported and selected</span>
+<span class="ne">--&gt; </span><span class="mi">485</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_module_from_path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="n">kernel_32</span><span class="o">.</span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">h_process</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:515,</span> in <span class="ni">_ThreadpoolInfo._make_module_from_path</span><span class="nt">(self, filepath)</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span> <span class="ow">or</span> <span class="n">user_api</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_api</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="n">module_class</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">module_class</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">515</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">module_class</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">user_api</span><span class="p">,</span> <span class="n">internal_api</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>     <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:606,</span> in <span class="ni">_Module.__init__</span><span class="nt">(self, filepath, prefix, user_api, internal_api)</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_api</span> <span class="o">=</span> <span class="n">internal_api</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dynlib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">_RTLD_NOLOAD</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">606</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_threads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_num_threads</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_extra_info</span><span class="p">()</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\threadpoolctl.py:646,</span> in <span class="ni">_OpenBLASModule.get_version</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> <span class="n">get_config</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dynlib</span><span class="p">,</span> <span class="s2">&quot;openblas_get_config&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span>                      <span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span> <span class="n">get_config</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span>
+<span class="ne">--&gt; </span><span class="mi">646</span> <span class="n">config</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;OpenBLAS&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="k">return</span> <span class="n">config</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;split&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>エラーが解決できないため，飛ばす</p>
+<p>k-最近傍法には，回帰を行う変種がある．ここでも１最近傍点を用いる者から見ていく．今回はwaveデータセットを用いる．３つのテストデータポイントを緑色の星印としてx軸上に書いた．１最近傍点を用いる予測では，最近傍点の値をそのまま使う．青い星印が予測点である，</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import mglearn</span>
+<span class="c1"># mglearn.plots.plot_knn_regression(n_neighbors=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>クラス分類の場合と同様に，より多くの最近傍点を用いることもできる．複数の最近傍点を用いる場合には，最近傍点の平均値を用いる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mglearn.plots.plot_knn_regression(n_neighbors=3)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># ３つの最近傍点を考慮するように設定してモデルのインスタンスを生成</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># 訓練データと訓練ターゲットを用いてモデルを学習させる．</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-6 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-6 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-6 pre {
+  padding: 0;
+}
+
+#sk-container-id-6 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-6 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-6 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-6 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-6 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-6 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-6 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-6 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-6 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-6 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-6 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-6 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-6 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-6 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-6 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-6 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-6 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-6 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-6 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-6 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-6 div.sk-label label.sk-toggleable__label,
+#sk-container-id-6 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-6 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-6 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-6 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-6 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-6 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-6 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-6 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-6 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-6 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-6 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-6 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsRegressor(n_neighbors=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KNeighborsRegressor<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KNeighborsRegressor(n_neighbors=3)</pre></div> </div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set predictions:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span> <span class="c1"># テストセットに対する精度</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set predictions:
+[-0.05396539  0.35686046  1.13671923 -1.89415682 -1.13881398 -1.63113382
+  0.35686046  0.91241374 -0.44680446 -1.13881398]
+</pre></div>
+</div>
+</div>
+</div>
+<p>scoreメソッドを用いてモデルを評価することもできる．このメソッドに対して回帰予測器は，<span class="math notranslate nohighlight">\(R^2\)</span>スコアを返す．<span class="math notranslate nohighlight">\(R^2\)</span>スコアは決定係数と呼ばれ，回帰モデルの予測の正確さを測る指標で，0から1までの値を取る．1は完全な予測に対応し，0は訓練セットのレスポンス値の平均を返すだけのものに対応する．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set R^2: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set R^2: 0.83
+</pre></div>
+</div>
+</div>
+</div>
+<p>これは比較的良いモデルであることを意味する．</p>
+<p><strong>一次元のデータセットに対して，すべての値に対する予測値がどのようになるかを見てみる．これには，たくさんのデータポイントを持つデータセットをつくればよい．</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1"># -3から3までの間に1000点のデータポイントを作る．</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n_neighbors</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="c1"># 1, 3, 9近傍点で予測</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">)</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">mglearn</span><span class="o">.</span><span class="n">cm2</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> neighbor(S)</span><span class="se">\n</span><span class="s2"> train score: </span><span class="si">{:.2f}</span><span class="s2">test score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">n_neighbors</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span>
+            <span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Target&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Model predictions&quot;</span><span class="p">,</span> <span class="s2">&quot;Training data/target&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Test data/target&quot;</span><span class="p">],</span> <span class="n">loc</span> <span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2383ddfffb0&gt;
+</pre></div>
+</div>
+<img alt="_images/e1b84c3db85acde1a84bf7d30fe399c741cd81314102b7487617db35e3873141.png" src="_images/e1b84c3db85acde1a84bf7d30fe399c741cd81314102b7487617db35e3873141.png" />
+</div>
+</div>
+<p>このグラフからわかるように，１最近傍点による回帰では訓練セットの個々の点が明らかに予測に影響を与えており，予測はすべて訓練データのポイントを通っている．このため予測は非常に不安定になっている．考慮する最近傍点を増やしていくと，予測はスムーズになるが，訓練データに対する適合度は下がる．</p>
+<section id="id4">
+<h3>線形モデル<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h4>線形モデルによる回帰<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>線形モデルは実用的に広く用いられており，この数十年間のあいだ盛んに研究されたモデルである．線形モデルは入力特徴量の<strong>線形関数</strong>を用いて予測を行うものである．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mglearn</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">plot_linear_regression_wave</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w[0]: 0.393906  b: -0.031804
+</pre></div>
+</div>
+<img alt="_images/cd2aa1b273dbc4d030ff9fe86c86d4e11840c6174b66638f48a4d2c2d59285a8.png" src="_images/cd2aa1b273dbc4d030ff9fe86c86d4e11840c6174b66638f48a4d2c2d59285a8.png" />
+</div>
+</div>
+<p>線形モデルによる回帰では，傾きw[0]: 0.393906  y切片b: -0.031804 とわかった．</p>
+</section>
+<section id="id6">
+<h4>線形回帰（通常最小二乗法）<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>線形回帰，もしくは線形最小二乗法は，最も単純で，最も古典的な線形回帰手法である．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_wave</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lr.coef_: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lr.intercept_: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lr.coef_: [0.39390555]
+lr.intercept_: -0.031804343026759746
+</pre></div>
+</div>
+</div>
+</div>
+<p>線形回帰（通常最小二乗法）では
+傾きlr.coef_: [0.39390555]
+y切片lr.intercept_: -0.031804343026759746
+とわかった．</p>
+<p>訓練セットとテストセットに対する性能を確認する．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.67
+Test set score: 0.66
+</pre></div>
+</div>
+</div>
+</div>
+<p>R^2が0.66というのはあまりよくないが，訓練セットとテストセットに対する値が非常に近い．これは，おそらくは適合不足で合って，過剰適合ではないことを意味する．このような１次元データセットは，モデルがとても単純なので過剰適合の危険は少ない．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mglearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_extended_boston</span><span class="p">()</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.95
+Test set score: 0.61
+</pre></div>
+</div>
+</div>
+</div>
+<p>このように訓練セットとテストセットで性能が大きく異なるのは，過剰適合が起きている明らかな兆候である．したがって，腹圧度を制御できるモデルを探さなければならない．もっとも一般的な手法は<strong>リッジ回帰</strong>である．</p>
+</section>
+<section id="id7">
+<h4>リッジ回帰<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>リッジ回帰は線形モデルによる回帰の一つである．予測に用いられる．しかし，リッジ回帰では，係数（w）を，訓練データに対する予測だけでなく，他の制約に対しても最適化する．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.89
+Test set score: 0.75
+</pre></div>
+</div>
+</div>
+</div>
+<p>結果からわかる通り，RidgeモデルはLinearRegressionモデルよりも訓練セットに対するスコアは低いが，テストセットに対するスコアは高い．これは期待された通りである．線形回帰ではデータに対して過剰適合していた．Ridgeは，製薬の強いモデルなので，過剰的具尾の危険は少ない．複雑どの低いモデルは，訓練セットに対する性能は低いが汎化性能は高い．我々が興味を持っているのは汎化性能だけなので，LinearRegressionモデルよりもRidgeモデルをつかったほうがよい．</p>
+<p>Ridgeモデルでは，
+モデルの簡潔さ（0に近い係数の数）と，訓練セットに対する性能がトレードオフの関係になる，このどちらに重くを置くかは，ユーザがalphaパラメータを用いて指定することができる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge10</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ridge10</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ridge10</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.79
+Test set score: 0.64
+</pre></div>
+</div>
+</div>
+</div>
+<p>alphaを小さくすると，係数の制約は小さくなる．（訓練精度が上がり，テスト精度（汎化性能）が下がることで過剰適合に近づく）alphaのせが非常に小さい値になると，係数への制約はほとんどなくなり，LinearRegressionと同じような挙動となる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rigid01</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rigid01</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test set score: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rigid01</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set score: 0.93
+Test set score: 0.77
+</pre></div>
+</div>
+</div>
+</div>
+<p>このケースでは，alpha=0.1がうまくいっているように見える，alpphaが大きい場合は小さな場合よりもcoef_の要素の絶対値が小さくなることが期待される．この期待が正しいことは以下で確認できる．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="c1"># plt.plot(ridge.coef_, &#39;s&#39;, label=&quot;Ridge alpha=1&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ridge10</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ridge alpha=10&quot;</span><span class="p">)</span>
+<span class="c1"># plt.plot(rigid01.coef_, &#39;v&#39;, label=&quot;Ridge alpha=0.1&quot;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;LinearRegression&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Coefficient index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Coefficient magnitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23845ca8fb0&gt;
+</pre></div>
+</div>
+<img alt="_images/2135a8caaa05731d761c3d57e84388eb6b60de0c20ffdcafdee088a0206e0248.png" src="_images/2135a8caaa05731d761c3d57e84388eb6b60de0c20ffdcafdee088a0206e0248.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1%E7%AB%A0_%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">はじめに</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">クラス分類と回帰</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">教師あり機械学習アルゴリズム</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">線形モデル</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">線形モデルによる回帰</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">線形回帰（通常最小二乗法）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">リッジ回帰</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

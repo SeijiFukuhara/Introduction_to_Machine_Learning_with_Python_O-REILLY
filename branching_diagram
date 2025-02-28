@@ -1,0 +1,16 @@
+// Branching Diagram
+digraph {
+	A [label="ルート"]
+	B [label="分岐1"]
+	C [label="分岐2"]
+	D [label="分岐1-1"]
+	E [label="分岐1-2"]
+	F [label="分岐2-1"]
+	G [label="分岐2-2"]
+	A -> B
+	A -> C
+	B -> D
+	B -> E
+	C -> F
+	C -> G
+}
